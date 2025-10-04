@@ -20,6 +20,12 @@ public class Employee {
 	private String name;
 	
 	@Column
+	private String email;
+	
+	@Column
+	private String password;
+	
+	@Column
 	private String city;
 	
 	public long getId() {
