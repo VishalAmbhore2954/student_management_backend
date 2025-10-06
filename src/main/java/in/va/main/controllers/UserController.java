@@ -13,30 +13,31 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import in.va.main.entities.Student;
-import in.va.main.services.StudentService;
+import in.va.main.entities.User;
+import in.va.main.services.UserService;
+
 
 @RestController
-public class EmployeeController {
+public class UserController {
 	
 	@Autowired
-	private StudentService studentService;
+	private UserService userService;
 	
-	@PostMapping("/student")
-	public Student createStudent(@RequestBody Student student) {
-		return studentService.createStudent(student);
+	@PostMapping("/users")
+	public User createUser(@RequestBody User user) {
+		return userService.createUser(user);
 	}
 	
-	@GetMapping("/student")
-	public List<Student> getStudents(){
-		return studentService.getStudents();
+	@GetMapping("/users")
+	public List<User> getUsers(){
+		return userService.getUsers();
 	}
 	
-	@DeleteMapping("/student/{id}")
-	public ResponseEntity<Map<String, String>> deleteStudent(@PathVariable long id){
-		studentService.deleteStudent(id);
+	@DeleteMapping("/users/{id}")
+	public ResponseEntity<Map<String, String>> deleteUser(@PathVariable long id){
+		userService.deleteUser(id);
 		Map<String, String> response = new HashMap<>();
-	    response.put("message", "Student deleted successfully");
+	    response.put("message", "User deleted successfully");
 	    
 	    return ResponseEntity.ok(response);
 	}
