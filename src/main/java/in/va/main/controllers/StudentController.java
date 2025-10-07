@@ -46,7 +46,7 @@ public class StudentController {
 		return studentService.getStudent(id);
 	}
 	
-	@DeleteMapping("student/{id}")
+	@DeleteMapping("/students/{id}")
 	public ResponseEntity<Map<String, String>> deleteStudent(@PathVariable long id,@RequestParam String deletedByEmail) {
 		Optional<Student> studentOpt = studentService.getStudent(id);
 		
