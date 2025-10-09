@@ -3,6 +3,7 @@ package in.va.main.services;
 
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -30,5 +31,14 @@ public class UserServiceImpl implements UserService{
 	public void deleteUser(long id) {
 		userRepository.deleteById(id);
 	}
-	
+
+	@Override
+	public Optional<User> findByEmail(String email) {
+		return userRepository.findByEmail(email);
+	}
+
+	@Override
+	public Optional<User> getUser(long id) {
+		return userRepository.findById(id);
+	}
 }

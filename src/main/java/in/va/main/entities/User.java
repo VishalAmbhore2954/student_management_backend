@@ -1,5 +1,7 @@
 package in.va.main.entities;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -19,7 +21,7 @@ public class User {
 	@Column
 	private String name;
 	
-	@Column
+	@Column(unique = true)
 	private String email;
 	
 	@Column
@@ -38,7 +40,8 @@ public class User {
 		this.password = password;
 	}
 	@Column
-	private String city;
+	@JsonProperty("user_role")
+	private String user_role;
 	
 	public long getId() {
 		return id;
@@ -52,10 +55,10 @@ public class User {
 	public void setName(String name) {
 		this.name = name;
 	}
-	public String getCity() {
-		return city;
+	public String getUserRole() {
+		return user_role;
 	}
-	public void setCity(String city) {
-		this.city = city;
+	public void setUserRole(String user_role) {
+		this.user_role = user_role;
 	}
 }
